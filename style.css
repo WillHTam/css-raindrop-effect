@@ -1,0 +1,50 @@
+html, body {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background: url(./background.jpg);
+    background-size: cover;
+}
+
+.rain span {
+    position: relative;
+}
+
+.rain span::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1mm;
+    height: 3mm;
+    top: 0;
+    left: 0;
+    filter: blur(5px);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    opacity: 0;
+    -webkit-animation: rainAnim 5s ease-in-out infinite;
+}
+
+.rain span:nth-child(5n)::before {
+    -webkit-animation-delay: 0s;
+}
+.rain span:nth-child(5n-1)::before {
+    -webkit-animation-delay: 3s;
+}
+.rain span:nth-child(5n-2)::before {
+    -webkit-animation-delay: 6s;
+}
+.rain span:nth-child(5n-3)::before {
+    -webkit-animation-delay: 9s;
+}
+.rain span:nth-child(5n-4)::before {
+    -webkit-animation-delay: 12s;
+}
+
+@-webkit-keyframes rainAnim {
+    from { opacity: 1; }
+    to { opacity: 0; top: 5em; }
+}
